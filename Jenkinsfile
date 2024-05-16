@@ -13,9 +13,8 @@ pipeline {
         }
         stage('SonarQube Analysis') {
             steps {
-                def mvnHome = tool 'Default Maven'
-                withSonarQubeEnv() {
-                    bat "\"${mvnHome}\\bin\\mvn\" clean verify sonar:sonar -Dsonar.projectKey=petclinct -Dsonar.projectName='petclinct'"
+                 steps {
+                bat 'mvn clean verify sonar:sonar -Dsonar.projectKey=petclinct -Dsonar.projectName=\'petclinct\''
                 }
             }
         }

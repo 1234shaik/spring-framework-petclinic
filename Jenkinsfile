@@ -13,12 +13,11 @@ pipeline {
         }
         stage('SonarQube Analysis') {
             steps {
-                 steps {
-                   mvn clean verify sonar:sonar \
+               bat ''' mvn clean verify sonar:sonar \
                    -Dsonar.projectKey=petclinct \
                    -Dsonar.projectName='petclinct' \
                    -Dsonar.host.url=http://localhost:8000 \
-                  -Dsonar.token=sqp_914e9967ecf088d5d353779e64104a9c1b9da9e6
+                   -Dsonar.token=sqp_914e9967ecf088d5d353779e64104a9c1b9da9e6 '''
                    }
                 }
             }

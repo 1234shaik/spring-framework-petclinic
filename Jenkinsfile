@@ -16,19 +16,22 @@ pipeline {
                bat ''' mvn clean verify sonar:sonar \
                    -Dsonar.projectKey=petclinct \
                    -Dsonar.projectName='petclinct' \
+                   -Dsonar.qualitygate.wait=true' \
+                    -Dsonar.qualitygate="new" \
                    -Dsonar.host.url=http://localhost:8000 \
                    -Dsonar.token=sqp_914e9967ecf088d5d353779e64104a9c1b9da9e6 '''
                    }
                 }
-        stage('Quality Gates') {
+        /* stage('Quality Gates') {
             steps {
                 bat ''' timeout(time: 1, unit: 'HOURS') {
                     // Wait for Quality Gate to be computed
                     waitForQualityGate abortPipeline: true '''
                 }
             }
-        }
+        } */
    }
+}
 
     
 

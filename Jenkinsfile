@@ -14,7 +14,9 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                  steps {
-                bat 'mvn clean verify sonar:sonar -Dsonar.projectKey=petclinct -Dsonar.projectName=\'petclinct\''
+                   script {
+                    bat 'mvn clean verify sonar:sonar -Dsonar.projectKey=petclinct -Dsonar.projectName=\'petclinct\''
+                   }
                 }
             }
         }

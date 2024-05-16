@@ -20,6 +20,13 @@ pipeline {
                    -Dsonar.token=sqp_914e9967ecf088d5d353779e64104a9c1b9da9e6 '''
                    }
                 }
+        stage('Quality Gates') {
+            steps {
+                timeout(time: 1, unit: 'HOURS') {
+                    // Wait for Quality Gate to be computed
+                    waitForQualityGate abortPipeline: true
+                }
+            }
             }
         }
     

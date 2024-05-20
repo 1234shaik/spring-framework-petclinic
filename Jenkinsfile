@@ -24,11 +24,11 @@ pipeline {
                 } */
          stage('SonarQube code Analysis') {
             steps {
-               bat ' mvn clean verify sonar:sonar \
+               bat '' mvn clean verify sonar:sonar \
                      -Dsonar.projectKey=frame-pet \
                      -Dsonar.projectName='frame-pet' \
                      -Dsonar.host.url=http://localhost:8000 \
-                     -Dsonar.token=sqp_ecb6af01fb584c2a4c308a3346dc94b9da58b3a1 '
+                     -Dsonar.token=sqp_ecb6af01fb584c2a4c308a3346dc94b9da58b3a1 ''
                    }
                 }
         

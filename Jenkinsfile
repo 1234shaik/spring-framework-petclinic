@@ -11,7 +11,7 @@ pipeline {
                 bat 'mvn install'
             }
         }
-        stage('SonarQube Analysis') {
+        /* stage('SonarQube Analysis') {
             steps {
                bat ''' mvn clean verify sonar:sonar \
                    -Dsonar.projectKey=petclinct \
@@ -21,7 +21,17 @@ pipeline {
                    -Dsonar.host.url=http://localhost:8000 \
                    -Dsonar.token=sqp_914e9967ecf088d5d353779e64104a9c1b9da9e6 '''
                    }
+                } */
+         stage('SonarQube code Analysis') {
+            steps {
+               bat ' mvn clean verify sonar:sonar \
+                     -Dsonar.projectKey=frame-pet \
+                     -Dsonar.projectName='frame-pet' \
+                     -Dsonar.host.url=http://localhost:8000 \
+                     -Dsonar.token=sqp_ecb6af01fb584c2a4c308a3346dc94b9da58b3a1 '
+                   }
                 }
+        
         /* stage('Quality Gates') {
             steps {
                 bat ''' timeout(time: 1, unit: 'HOURS') {

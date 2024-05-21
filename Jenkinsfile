@@ -6,12 +6,12 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/1234shaik/springpetclinic.git'
             }
         }
-        stage('Maven Build') {
+        /* stage('Maven Build') {
             steps {
                 bat 'mvn install'
             }
         }
-       /* stage('SonarQube Analysis') {
+        stage('SonarQube Analysis') {
             steps {
                bat '''mvn clean verify sonar:sonar \
                     -Dsonar.projectKey=spring_petclinic \

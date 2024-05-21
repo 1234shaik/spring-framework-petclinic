@@ -37,12 +37,25 @@ pipeline {
                     waitForQualityGate abortPipeline: true '''
                 }
             }
-        } 
-        stage ('artifactory') {
+        } */
+    stage ('artifactory') {
             steps {
-                
-   } */
-}
+                script {
+                    def SERVER_ID = "artifactory"
+                    def server = Artifactory.server SERVER_ID
+                    def downloadSpec = """ {
+                        "files" : [
+                            {
+                                "pattern": "spring-pet-frame\target/* .jar",
+                                "target":"
+                            }
+                        ]             
+                    } """
+                     server.upload(downloadSpec)
+                }
+            }
+        }
+     }
 }
 
     

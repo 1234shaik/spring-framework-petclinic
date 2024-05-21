@@ -13,9 +13,10 @@ pipeline {
         }
          stage('SonarQube Analysis') {
             steps {
-               bat '''mvn clean verify sonar:sonar \
+               bat ''' mvn clean verify sonar:sonar \
                     -Dsonar.projectKey=spring_petclinic \
                     -Dsonar.projectName='spring_petclinic' \
+                    -Dsonar.host.url=http://localhost:9000 \
                     -Dsonar.token=sqp_945e2edf79caf907bbfcc492439e24522b78b0b4 '''
                    }
                 }

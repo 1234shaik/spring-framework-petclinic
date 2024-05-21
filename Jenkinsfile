@@ -20,7 +20,7 @@ pipeline {
                     -Dsonar.token=sqp_945e2edf79caf907bbfcc492439e24522b78b0b4 '''
                    }
                 }
-         stage('SonarQube code Analysis') {
+         /* stage('SonarQube code Analysis') {
             steps {
                bat ''' mvn clean verify sonar:sonar \
                      -Dsonar.projectKey=frame-pet \
@@ -30,18 +30,19 @@ pipeline {
                    }
                 }
         
-        /* stage('Quality Gates') {
+           stage('Quality Gates') {
             steps {
                 bat ''' timeout(time: 1, unit: 'HOURS') {
                     // Wait for Quality Gate to be computed
                     waitForQualityGate abortPipeline: true '''
                 }
             }
-        } */
+        } 
         stage ('artifactory') {
             steps {
                 
-   }
+   } */
+}
 }
 
     

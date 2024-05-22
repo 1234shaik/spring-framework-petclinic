@@ -11,7 +11,7 @@ pipeline {
                 bat 'mvn package'
             }
         }
-         stage('SonarQube Analysis') {
+         /* stage('SonarQube Analysis') {
             steps {
                bat ''' mvn clean verify sonar:sonar \
                     -Dsonar.projectKey=spring_petclinic \
@@ -20,7 +20,7 @@ pipeline {
                     -Dsonar.token=sqp_945e2edf79caf907bbfcc492439e24522b78b0b4 '''
                    }
                 }
-         /* stage('SonarQube code Analysis') {
+          stage('SonarQube code Analysis') {
             steps {
                bat ''' mvn clean verify sonar:sonar \
                      -Dsonar.projectKey=frame-pet \

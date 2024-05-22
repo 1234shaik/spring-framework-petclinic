@@ -47,7 +47,7 @@ pipeline {
                         "files" : [
                             {
                                 "pattern": "spring-pet-frame\target/* .jar",
-                                "target":"
+                                "target":"example-repo-local"
                             }
                         ]             
                     } """

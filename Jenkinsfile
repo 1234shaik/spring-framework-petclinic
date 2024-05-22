@@ -38,24 +38,24 @@ pipeline {
                 }
             }
         } */
-    stage ('artifactory') {
-            steps {
-                script {
-                    def SERVER_ID = "artifactory"
-                    def server = Artifactory.server SERVER_ID
-                    def downloadSpec = """ {
-                        "files" : [
-                            {
-                                "pattern": "spring-pet-frame\target/* .jar",
-                                "target":"example-repo-local"
-                            }
-                        ]             
-                    } """
-                     server.upload(downloadSpec)
-                }
-            }
+    stage('artifactory') {
+    steps {
+        script {
+            def SERVER_ID = "artifactory"
+            def server = Artifactory.server(SERVER_ID)
+            def downloadSpec = """{
+                "files": [
+                    {
+                        "pattern": "C:\ProgramData\Jenkins\.jenkins\workspace\spring-pet-frame\target*.jar",
+                        "target": "example-repo-local/"
+                    }
+                ]
+            }"""
+            server.upload(downloadSpec)
         }
-     }
+    }
+}
+}
 }
 
     

@@ -46,7 +46,7 @@ pipeline {
             def downloadSpec = """{
                 "files": [
                     {
-                        "pattern": "C:\ProgramData\Jenkins\.jenkins\workspace\spring-pet-frame\target*.jar",
+                        "pattern": "C:/ProgramData/Jenkins/.jenkins/workspace/spring-pet-frame/target*.jar",
                         "target": "example-repo-local/"
                     }
                 ]

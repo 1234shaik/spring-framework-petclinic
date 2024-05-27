@@ -56,7 +56,10 @@ pipeline {
 //     }
 // }
 stage ('docker') {
-    bat 'docker push my-spring-petclinic:latest'
+      steps {
+                // Build Docker image
+                bat 'docker build -t my-spring-petclinic .'
+            }
 
 }
 }

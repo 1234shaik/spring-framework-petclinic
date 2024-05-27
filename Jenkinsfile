@@ -38,22 +38,26 @@ pipeline {
                 }
             }
         } */
-    stage('artifactory') {
-    steps {
-        script {
-            def SERVER_ID = "artifactory"
-            def server = Artifactory.server(SERVER_ID)
-            def downloadSpec = """{
-                "files": [
-                    {
-                        "pattern": "C:/ProgramData/Jenkins/.jenkins/workspace/spring-pet-frame/target*.war",
-                        "target": "example-repo-local/"
-                    }
-                ]
-            }"""
-            server.upload(downloadSpec)
-        }
-    }
+//     stage('artifactory') {
+//     steps {
+//         script {
+//             def SERVER_ID = "artifactory"
+//             def server = Artifactory.server(SERVER_ID)
+//             def downloadSpec = """{
+//                 "files": [
+//                     {
+//                         "pattern": "C:/ProgramData/Jenkins/.jenkins/workspace/spring-pet-frame/target*.war",
+//                         "target": "example-repo-local/"
+//                     }
+//                 ]
+//             }"""
+//             server.upload(downloadSpec)
+//         }
+//     }
+// }
+stage ('docker') {
+    bat 'docker push my-spring-petclinic:latest'
+
 }
 }
 }

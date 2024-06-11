@@ -1,14 +1,18 @@
-# Use the specified base image
-FROM rapidfort/tomcat10-openjdk17-ib
+# # Use the specified base image
+# FROM rapidfort/tomcat10-openjdk17-ib
 
-# Set the working directory in the container
-WORKDIR /usr/local/tomcat/webapps
+# # Set the working directory in the container
+# WORKDIR /usr/local/tomcat/webapps
 
-# Copy the contents from the local target directory to the container's webapps directory
-COPY spring-framework-petclinic/target/*.war .
+# # Copy the contents from the local target directory to the container's webapps directory
+# COPY spring-framework-petclinic/target/*.war .
 
-# Expose the default Tomcat port
-EXPOSE 8080
+# # Expose the default Tomcat port
+# EXPOSE 8080
 
-# Set the entry point to run Tomcat
-ENTRYPOINT ["catalina.sh", "run"]
+# # Set the entry point to run Tomcat
+# ENTRYPOINT ["catalina.sh", "run"]
+
+FROM ubuntu
+COPY C:\Users\aslam\Desktop\DevOps-compressed-folders\spring-framework-petclinic\target\petclinic.war /home
+CMD ["BASH"]

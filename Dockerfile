@@ -14,5 +14,5 @@
 # ENTRYPOINT ["catalina.sh", "run"]
 
 FROM ubuntu
-COPY C:\ProgramData\Jenkins\.jenkins\workspace\spring-pet-frame /home
+COPY ./target /home
 CMD ["BASH"]

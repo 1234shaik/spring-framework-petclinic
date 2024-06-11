@@ -13,6 +13,6 @@
 # # Set the entry point to run Tomcat
 # ENTRYPOINT ["catalina.sh", "run"]
 
-# FROM ubuntu
-# COPY /ProgramData/Jenkins/.jenkins/workspace/spring-pet-frame/target/ /home
-# CMD ["BASH"]
+FROM ubuntu
+COPY C:\ProgramData\Jenkins\.jenkins\workspace\spring-pet-frame /home
+CMD ["BASH"]

@@ -58,7 +58,7 @@ pipeline {
 stage ('docker info') {
       steps {
                 // Build Docker image
-                bat 'docker info'
+                bat 'docker build -t image:pet C:\ProgramData\Jenkins\.jenkins\workspace\spring-pet-frame'
             }
 
 }

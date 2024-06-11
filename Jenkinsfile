@@ -55,10 +55,10 @@ pipeline {
 //         }
 //     }
 // }
-stage ('docker image') {
+stage ('docker info') {
       steps {
                 // Build Docker image
-                bat 'docker build -t my-spring-petclinic .'
+                bat 'docker info'
             }
 
 }

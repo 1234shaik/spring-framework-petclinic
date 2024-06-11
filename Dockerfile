@@ -14,5 +14,6 @@
 # ENTRYPOINT ["catalina.sh", "run"]
 
 FROM ubuntu
+RUN apt update
 COPY ./target /home
 CMD ["BASH"]

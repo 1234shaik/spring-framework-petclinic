@@ -11,16 +11,16 @@ pipeline {
                 bat 'mvn clean package'
             }
         }
-          // stage('SonarQube Analysis') {
-          //   steps {
-          //      bat ''' mvn clean verify sonar:sonar \
-          //           -Dsonar.projectKey=spring_petclinic \
-          //           -Dsonar.projectName='spring_petclinic' \
-                  // -Dsonar.host.url=http://localhost:9000 \
-                  // -Dsonar.token=sqp_945e2edf79caf907bbfcc492439e24522b78b0b4 '''
+          /* stage('SonarQube Analysis') {
+            steps {
+               bat ''' mvn clean verify sonar:sonar \
+                    -Dsonar.projectKey=spring_petclinic \
+                    -Dsonar.projectName='spring_petclinic' \
+                  -Dsonar.host.url=http://localhost:9000 \
+                  -Dsonar.token=sqp_945e2edf79caf907bbfcc492439e24522b78b0b4 '''
                    }
                 }
-         /* stage('SonarQube code Analysis') {
+            stage('SonarQube code Analysis') {
             steps {
                bat ''' mvn clean verify sonar:sonar \
                      -Dsonar.projectKey=frame-pet \
@@ -37,31 +37,31 @@ pipeline {
                     waitForQualityGate abortPipeline: true '''
                 }
             }
-        } */
-//     stage('artifactory') {
-//     steps {
-//         script {
-//             def SERVER_ID = "artifactory"
-//             def server = Artifactory.server(SERVER_ID)
-//             def downloadSpec = """{
-//                 "files": [
-//                     {
-//                         "pattern": "C:/ProgramData/Jenkins/.jenkins/workspace/spring-pet-frame/target*.war",
-//                         "target": "example-repo-local/"
-//                     }
-//                 ]
-//             }"""
-//             server.upload(downloadSpec)
-//         }
-//     }
-// }
-// stage ('docker info') {
-//       steps {
-//                 // Build Docker image
-//                 bat 'docker build -t image:pet C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\spring-pet-frame'
-//             }
+        } 
+    stage('artifactory') {
+    steps {
+        script {
+            def SERVER_ID = "artifactory"
+            def server = Artifactory.server(SERVER_ID)
+            def downloadSpec = """{
+                "files": [
+                    {
+                        "pattern": "C:/ProgramData/Jenkins/.jenkins/workspace/spring-pet-frame/target*.war",
+                        "target": "example-repo-local/"
+                    }
+                ]
+            }"""
+            server.upload(downloadSpec)
+        }
+    }
+}
+stage ('docker info') {
+      steps {
+                // Build Docker image
+                bat 'docker build -t image:pet C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\spring-pet-frame'
+            }
 
-// }
+} */
         stage ('tomcat') {
           steps {
                 bat 'copy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\spring-pet-frame\\target\\*.war C:\\paths\\apache-tomcat-10.1.24\\webapps'

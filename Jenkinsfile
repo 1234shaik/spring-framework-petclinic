@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Maven Build') {
             steps {
-                bat 'mvn package'
+                bat 'mvn clean package'
             }
         }
           // stage('SonarQube Analysis') {

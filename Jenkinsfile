@@ -13,11 +13,11 @@ pipeline {
         }
             
         
-        stage('artifactory') {
+        stage('artifact_backup') {
             steps {
               script {
                 def SERVER_ID = "artifactory"
-                def server = Artifactory.server(SERVER_ID)
+                def server = Artifactory.server SERVER_ID
                 def downloadSpec = """{
                   "files": [
                      {

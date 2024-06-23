@@ -3,10 +3,10 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
-                git 'clone git@github.com:1234shaik/springpetclinic.git'
+                git branch:'artifactory', url:'git@github.com:1234shaik/springpetclinic.git'
             }
         }
-        /* stage('Maven Build') {
+         stage('Maven Build') {
             steps {
                 bat 'mvn clean package'
             }
@@ -29,6 +29,6 @@ pipeline {
                 server.upload(downloadSpec)
             }
         }
-     } */
+     } 
     }
 }

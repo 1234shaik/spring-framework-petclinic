@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
-                git branch:'artifactory', url:'git@github.com:1234shaik/springpetclinic.git'
+                git branch: 'artifactory', url: 'https://github.com/1234shaik/springpetclinic.git'
             }
         }
         /* stage('Maven Build') {

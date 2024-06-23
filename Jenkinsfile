@@ -6,7 +6,7 @@ pipeline {
                 git url: 'https://github.com/1234shaik/springpetclinic.git'
             }
         }
-        stage('Maven Build') {
+        \* stage('Maven Build') {
             steps {
                 bat 'mvn clean package'
             }
@@ -29,6 +29,6 @@ pipeline {
                 server.upload(downloadSpec)
             }
         }
-     }
+     } */
     }
 }

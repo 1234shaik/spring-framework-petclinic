@@ -7,7 +7,7 @@ pipeline {
                 git 'https://github.com/1234shaik/springpetclinic.git'
             }
         }
-        stage('Maven Build') {
+        /* stage('Maven Build') {
             steps {
                 bat 'mvn clean package'
             }
@@ -30,7 +30,7 @@ pipeline {
     }
 }
         
-          /* stage('SonarQube Analysis') {
+           stage('SonarQube Analysis') {
             steps {
                bat ''' mvn clean verify sonar:sonar \
                     -Dsonar.projectKey=spring_petclinic \
@@ -69,9 +69,9 @@ stage ('docker info') {
           steps {
                 bat 'copy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\spring-pet-frame\\target\\*.war C:\\paths\\apache-tomcat-10.1.24\\webapps'
             }
-        } 
+        } */
 }
-} */
+} 
 
     
 

@@ -29,6 +29,7 @@ pipeline {
         }
     }
 }
+        }
           /* stage('SonarQube Analysis') {
             steps {
                bat ''' mvn clean verify sonar:sonar \

@@ -13,22 +13,22 @@ pipeline {
         }
             
         
-        stage('artifact_backup') {
+       stage('artifact_backup') {
             steps {
-              script {
-                def SERVER_ID = "artifactory"
-                def server = Artifactory.server SERVER_ID
-                def downloadSpec = """{
-                  "files": [
-                     {
-                        "pattern": "spring-pet-frame/target/*.war",
-                        "target": "petclinc-dev/"
-                     }
-                  ]
-               }"""
-                server.upload(downloadSpec)
+                script {
+                    def SERVER_ID = "artifactory"
+                    def server = Artifactory.server(SERVER_ID)
+                    def uploadSpec = """{
+                        "files": [
+                            {
+                                "pattern": "spring-pet-frame/target/*.war",
+                                "target": "petclinc-dev/"
+                            }
+                        ]
+                    }"""
+                    server.upload(uploadSpec)
+                }
             }
         }
-     } 
     }
 }

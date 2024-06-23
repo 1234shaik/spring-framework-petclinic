@@ -13,8 +13,8 @@ pipeline {
             }
         
            stage('artifactory') {
-    steps {
-        script {
+            steps {
+              script {
             def SERVER_ID = "artifactory"
             def server = Artifactory.server(SERVER_ID)
             def downloadSpec = """{
@@ -29,7 +29,7 @@ pipeline {
         }
     }
 }
-        }
+        
           /* stage('SonarQube Analysis') {
             steps {
                bat ''' mvn clean verify sonar:sonar \
@@ -44,7 +44,7 @@ pipeline {
                bat ''' mvn clean verify sonar:sonar \
                      -Dsonar.projectKey=frame-pet \
                      -Dsonar.projectName='frame-pet' \
-                     # -Dsonar.host.url=http://localhost:8000 \
+                     -Dsonar.host.url=http://localhost:8000 \
                      -Dsonar.token=sqp_ecb6af01fb584c2a4c308a3346dc94b9da58b3a1 '''
                    }
                 }
@@ -69,9 +69,9 @@ stage ('docker info') {
           steps {
                 bat 'copy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\spring-pet-frame\\target\\*.war C:\\paths\\apache-tomcat-10.1.24\\webapps'
             }
-        } */
+        } 
 }
-}
+} */
 
     
 

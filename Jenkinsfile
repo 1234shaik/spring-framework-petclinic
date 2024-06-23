@@ -10,7 +10,24 @@ pipeline {
             steps {
                 bat 'mvn clean package'
             }
+        
+           stage('artifactory') {
+    steps {
+        script {
+            def SERVER_ID = "artifactory"
+            def server = Artifactory.server(SERVER_ID)
+            def downloadSpec = """{
+                "files": [
+                    {
+                        "pattern": "C:/ProgramData/Jenkins/.jenkins/workspace/spring-pet-frame/target*.war",
+                        "target": "petclinc-dev/"
+                    }
+                ]
+            }"""
+            server.upload(downloadSpec)
         }
+    }
+}
           /* stage('SonarQube Analysis') {
             steps {
                bat ''' mvn clean verify sonar:sonar \
@@ -38,35 +55,19 @@ pipeline {
                 }
             }
         } 
-    stage('artifactory') {
-    steps {
-        script {
-            def SERVER_ID = "artifactory"
-            def server = Artifactory.server(SERVER_ID)
-            def downloadSpec = """{
-                "files": [
-                    {
-                        "pattern": "C:/ProgramData/Jenkins/.jenkins/workspace/spring-pet-frame/target*.war",
-                        "target": "example-repo-local/"
-                    }
-                ]
-            }"""
-            server.upload(downloadSpec)
-        }
-    }
-}
+ 
 stage ('docker info') {
       steps {
                 // Build Docker image
                 bat 'docker build -t image:pet C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\spring-pet-frame'
             }
 
-} */
+} 
         stage ('tomcat') {
           steps {
                 bat 'copy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\spring-pet-frame\\target\\*.war C:\\paths\\apache-tomcat-10.1.24\\webapps'
             }
-        } 
+        } */
 }
 }
 

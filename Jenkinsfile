@@ -21,7 +21,7 @@ pipeline {
                 def downloadSpec = """{
                   "files": [
                      {
-                        "pattern": "C:/ProgramData/Jenkins/.jenkins/workspace/spring-pet-frame/target*.war",
+                        "pattern": "spring-pet-frame/target*.war",
                         "target": "petclinc-dev/"
                      }
                   ]

@@ -61,12 +61,12 @@ stage ('docker info') {
                 bat 'docker build -t image:pet C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\spring-pet-frame'
             }
 
-} */
+} 
         stage ('tomcat') {
           steps {
                 bat 'copy C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\spring-pet-frame\\target\\*.war C:\\paths\\apache-tomcat-10.1.24\\webapps'
             }
-        }
+        } */
 }
 }
 

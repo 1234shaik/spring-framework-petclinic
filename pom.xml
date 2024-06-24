@@ -4,7 +4,6 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.springframework.samples</groupId>
     <artifactId>spring-framework-petclinic</artifactId>
-<!--     <url>http://localhost:8082/artifactory/petclinc-dev</url> -->
     <version>6.1.4</version>
 
     <name>Spring Framework Petclinic</name>
@@ -649,12 +648,12 @@
     <repository>
         <id>central</id>
         <name>DESKTOP-MMSQITL-releases</name>
-        <url>http://localhost:8081/artifactory/petclinc-dev</url>
+        <url>http://localhost:8082/artifactory/petclinc-dev</url>
     </repository>
     <snapshotRepository>
         <id>snapshots</id>
         <name>DESKTOP-MMSQITL-snapshots</name>
-        <url>http://localhost:8081/artifactory/petclinc-dev</url>
+        <url>http://localhost:8082/artifactory/petclinc-dev</url>
     </snapshotRepository>
 </distributionManagement>
     

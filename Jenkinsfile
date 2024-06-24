@@ -18,11 +18,11 @@ pipeline {
 
         stage('Maven Build') {
             steps {
-                configFileProvider([configFile(fileId: 'your-settings-xml-id', variable: 'MAVEN_SETTINGS')]) {
-                    bat "mvn clean package --settings $MAVEN_SETTINGS"
-                }
+                // Use local Maven settings.xml file for the build
+                bat "mvn clean package --settings C:\\Users\\aslam\\.m2\\settings.xml"
             }
         }
+
 
         stage('artifact_backup') {
             steps {

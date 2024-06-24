@@ -645,4 +645,18 @@
         </profile>
    </profiles>
 
+<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>DESKTOP-MMSQITL-releases</name>
+        <url>http://localhost:8081/artifactory/petclinc-dev</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>DESKTOP-MMSQITL-snapshots</name>
+        <url>http://localhost:8081/artifactory/petclinc-dev</url>
+    </snapshotRepository>
+</distributionManagement>
+    
+
 </project>

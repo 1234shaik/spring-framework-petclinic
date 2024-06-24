@@ -2,11 +2,10 @@ pipeline {
     agent any
 
     environment {
+        // Environment variables for Artifactory
         ARTIFACTORY_SERVER_ID = 'artifactory'
         ARTIFACTORY_URL = 'http://localhost:8082/artifactory'
-        ARTIFACTORY_USERNAME = 'admin' // Default admin username
-        ARTIFACTORY_PASSWORD = 'password' // Default admin password, change accordingly
-        ARTIFACTORY_CREDENTIALS_ID = 'jfrog-password1'
+        ARTIFACTORY_CREDENTIALS_ID = 'jfrog-password1' // ID of the stored credentials in Jenkins
     }
 
     stages {
@@ -23,15 +22,16 @@ pipeline {
             }
         }
 
-
         stage('artifact_backup') {
             steps {
                 script {
-                    def rtServer = Artifactory.server ARTIFACTORY_SERVER_ID
+                    // Configure Artifactory server
+                    def rtServer = Artifactory.server(ARTIFACTORY_SERVER_ID)
                     rtServer.url = ARTIFACTORY_URL
                     rtServer.credentialsId = ARTIFACTORY_CREDENTIALS_ID
                     rtServer.timeout = 300
 
+                    // Upload artifacts to Artifactory
                     def uploadSpec = """{
                         "files": [
                             {

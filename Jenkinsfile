@@ -1,12 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        // Environment variables for Artifactory
-        ARTIFACTORY_SERVER_ID = 'artifactory'
-        ARTIFACTORY_URL = 'http://localhost:8081/artifactory'
-        ARTIFACTORY_CREDENTIALS_ID = 'jfrog-password1' // ID of the stored credentials in Jenkins
-    }
 
     stages {
         stage('SCM') {
@@ -25,13 +19,8 @@ pipeline {
         stage('artifact_backup') {
             steps {
                 script {
-                    // Configure Artifactory server
-                    def rtServer = Artifactory.server(ARTIFACTORY_SERVER_ID)
-                    rtServer.url = ARTIFACTORY_URL
-                    rtServer.credentialsId = ARTIFACTORY_CREDENTIALS_ID
-                    rtServer.timeout = 300
-
-                    // Upload artifacts to Artifactory
+                    def SERVER_ID = "artifactory"
+                    def server = Artifactory.server(SERVER_ID)
                     def uploadSpec = """{
                         "files": [
                             {
@@ -40,11 +29,13 @@ pipeline {
                             }
                         ]
                     }"""
-                    rtServer.upload(uploadSpec)
+                    server.upload(uploadSpec)
                 }
             }
         }
-    }
+            }
+        }
+    
 
     post {
         always {

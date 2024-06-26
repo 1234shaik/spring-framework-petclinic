@@ -12,7 +12,7 @@ pipeline {
         stage('Maven Build') {
             steps {
                 // Use local Maven settings.xml file for the build
-                bat "mvn clean package"
+                bat "mvn clean deploy"
             }
         }
 

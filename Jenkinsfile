@@ -1,6 +1,9 @@
 pipeline {
     agent any
 
+    environment {
+        MAVEN_SETTINGS = credentials('your-maven-settings-id') // ID of the Maven settings file stored in Jenkins credentials
+    }
 
     stages {
         stage('SCM') {
@@ -11,8 +14,10 @@ pipeline {
 
         stage('Maven Build') {
             steps {
-                // Use local Maven settings.xml file for the build
-                bat "mvn clean deploy"
+                // Use the Maven settings file with credentials for the build
+                withMaven(mavenSettingsConfig: 'your-maven-settings-id') {
+                    bat "mvn clean deploy"
+                }
             }
         }
 
@@ -33,20 +38,5 @@ pipeline {
                 }
             }
         }
-            }
-        }
-    
-
-//     post {
-//         always {
-//             archiveArtifacts artifacts: 'spring-pet-frame/target/*.war', allowEmptyArchive: true
-//         }
-//         success {
-//             echo 'Pipeline completed successfully.'
-//         }
-//         failure {
-//             echo 'Pipeline failed.'
-//         }
-//     }
-// }
-// }
+    }
+}

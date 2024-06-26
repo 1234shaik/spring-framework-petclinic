@@ -37,15 +37,16 @@ pipeline {
         }
     
 
-    post {
-        always {
-            archiveArtifacts artifacts: 'spring-pet-frame/target/*.war', allowEmptyArchive: true
-        }
-        success {
-            echo 'Pipeline completed successfully.'
-        }
-        failure {
-            echo 'Pipeline failed.'
-        }
-    }
-}
+//     post {
+//         always {
+//             archiveArtifacts artifacts: 'spring-pet-frame/target/*.war', allowEmptyArchive: true
+//         }
+//         success {
+//             echo 'Pipeline completed successfully.'
+//         }
+//         failure {
+//             echo 'Pipeline failed.'
+//         }
+//     }
+// }
+// }

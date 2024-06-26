@@ -25,7 +25,7 @@ pipeline {
                         "files": [
                             {
                                 "pattern": "spring-pet-frame/target/*.war",
-                                "target": "petclinc-dev/"
+                                "target": "frame-prod/"
                             }
                         ]
                     }"""

@@ -1,10 +1,7 @@
 pipeline {
     agent any
 
-    environment {
-        MAVEN_SETTINGS = credentials('your-maven-settings-id') // ID of the Maven settings file stored in Jenkins credentials
-    }
-
+  
     stages {
         stage('SCM') {
             steps {

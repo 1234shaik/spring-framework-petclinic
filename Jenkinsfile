@@ -12,11 +12,11 @@ pipeline {
         stage('Maven Build') {
             steps {
                 // Use the Maven settings file with credentials for the build
-                withMaven(mavenSettingsConfig: 'your-maven-settings-id') {
+                
                     bat "mvn clean deploy"
                 }
             }
-        }
+        
 
         stage('artifact_backup') {
             steps {

@@ -12,7 +12,7 @@ pipeline {
         stage('Maven Build') {
             steps {
                 // Use local Maven settings.xml file for the build
-                bat "mvn clean package --settings C:\\Users\\aslam\\.m2\\settings.xml"
+                bat "mvn clean package"
             }
         }
 
